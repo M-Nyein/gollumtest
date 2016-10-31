@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+</thead>
+  <tbody>
+    
+      <tr>
+        <td><%= @adminuser.name %></td>
+        <td><%= @adminuser.email %></td>
+        <td><%= link_to t('.edit', :default => t("helpers.links.edit")),edit_adminuser_path(@adminuser), :class => 'btn btn-primary btn-xs' %>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>

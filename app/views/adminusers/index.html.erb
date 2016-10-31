@@ -1,0 +1,19 @@
+<h2>Admin list</h2>
+
+<table>
+	<thead>
+		<td>Admin Name</td>
+		<td>Email</td>
+	</thead>
+	<tbody>
+		<% @adminusers.each do |user|%>
+		<tr>
+		<td><%= user.name %></td>
+		<td><%= user.email %></td>
+		<td><%= link_to "Edit", edit_adminuser_path(user) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>
+

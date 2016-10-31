@@ -1,0 +1,20 @@
+<h2>Log In</h2>
+<%= form_for @adminuser do |f| %>
+
+	
+	<div>
+		<%= f.label :email %>
+		<%= f.email_field :email %>
+	</div>
+
+	<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	</div>
+	
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <div class="action"><%= f.submit "Login" %></div>
+<% end %>

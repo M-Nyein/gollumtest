@@ -1,0 +1,31 @@
+<%= form_for @user,:html => {:multipart => true}, url: {action: "update"} do |f| %>
+
+	<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	</div>
+	
+	<div>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+	</div>
+	<div>
+		<%= f.label :phone %>
+		<%= f.text_field :phone %>
+	</div>
+	<div>
+		<%= f.label :photo %>
+		<%= f.file_field :photo %>
+	</div>
+	<div>
+	<%= f.label :town_id %>
+	<%= f.text_field :town_id %>
+	</div>
+	<div>
+	<%= f.label :division_id %>
+	<%= f.text_field :division_id %>
+	</div>
+	<div class="action"><%= f.submit "Update"  %></div>
+
+<% end %>
+<%= link_to 'Back', user_path %>

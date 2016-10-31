@@ -1,0 +1,9 @@
+/* Paper
+ * Bootswatch
+ *= require_self
+ *= require paper/loader
+ *= require paper/bootswatch
+*/
+
+
+body {padding-top: 50px;}

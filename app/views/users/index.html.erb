@@ -1,0 +1,28 @@
+<h2>User list</h2>
+
+<table>
+	<thead>
+		<td>User</td>
+		<td>Email</td>
+		<td>Phone</td>
+		<td>Town</td>
+		<td>Division</td>
+		<td>Photo</td>
+	</thead>
+	<tbody>
+		<% @users.each do |user|%>
+		<tr>
+		<td><%= user.name %></td>
+		<td><%= user.email %></td>
+		<td><%= user.phone %></td>
+		<td><%= user.town_id %></td>
+		<td><%= user.division_id %></td>
+		<td></td>
+		<td><%= link_to "Edit", edit_user_path(user) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>
+
+<%= link_to "new user", new_user_path %>

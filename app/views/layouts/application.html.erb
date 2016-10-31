@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profileapp</title>
+    <%= csrf_meta_tags %>
+
+  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
+  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.css">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-default">
+  	<div class="container">
+  		<div class="nav-header">
+      <a class="navbar-brand" href="/">Dashboard</a> 
+      </div>
+      <div class="collapse navbar-collapse">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="/divisions">Division</a></li>
+          <li><a href="/towns">Town</a></li>
+          <% if adminuser_signed_in? %>
+          <li><a href="/users">User</a></li>
+          <% end %>
+        </ul>
+
+        <p class="navbar-text pull-right">
+        <!-- <div class="collapse navbar-collapse"> -->
+        <!-- <ul class="nav navbar-nav"> -->
+        <% if adminuser_signed_in? %>
+          
+            <strong><%= current_adminuser.email %></strong>.
+            
+            <%= link_to 'Edit profile', edit_adminuser_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_adminuser_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% elsif user_signed_in? %>
+          
+            <strong><%= current_user.email %></strong>.
+            
+            <%= link_to 'Edit profile', edit_user_path(current_user.id), :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+              <%= link_to "Sign In", user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+          <!-- </ul> -->
+          <!-- </div> -->
+          </p>
+        </div>
+      </div>
+  	</div>
+  </nav>
+  <div class="container">
+  <div class="col-lg-10">
+    <%= yield %>
+  </div>
+  <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+  </div>
+  </body>
+</html>
